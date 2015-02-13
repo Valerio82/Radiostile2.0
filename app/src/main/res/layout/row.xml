@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textViewNomeArtista"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:height="20dp"
+        android:clickable="true"
+        android:textSize="15dp"/>
+
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="New Text"
+    android:id="@+id/textViewNomeCanzone"
+    android:layout_below="@+id/textViewNomeArtista"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:height="20dp"
+    android:clickable="true"
+    android:textSize="15dp"
+    android:layout_alignRight="@+id/textViewNomeArtista"
+    android:layout_alignEnd="@+id/textViewNomeArtista" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:layout_gravity="right"
+        android:src="@drawable/ic_action_delete"
+        android:background="@android:color/transparent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@+id/textViewNomeCanzone" />
+</RelativeLayout>
