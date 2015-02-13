@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity {
     private boolean statusBottone = false;
     private boolean metadata=false;
     private Timer timer;
-    private String datiCanzone="";
+    private String datiCanzone=null;
     private static final String RADIOSTILE_URL="http://178.32.138.88:8046/stream";
     private Intent intentStartMediaplayerService;
     private DbManager dbManager;
@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity {
                                 textViewSongTitle.setText(datiCanzone);
                                 textViewSongTitle.refreshDrawableState();
                             } else {
-                                textViewSongTitle.setText("");
+                                textViewSongTitle.setText(null);
                             }
                         }
                     });
