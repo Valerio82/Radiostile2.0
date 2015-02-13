@@ -32,8 +32,8 @@ public class DatabaseActivity extends ActionBarActivity {
         listView=(ListView)findViewById(R.id.listView);
         dbManager=new DbManager(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final Cursor cursor=dbManager.query();
-        cursorAdapter=new CursorAdapter(this,cursor,0) {
+        Cursor cursor=dbManager.query();
+        cursorAdapter=new CursorAdapter(this,cursor,cursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER) {
             @Override
             public View newView(Context context, Cursor cursor, ViewGroup parent) {
                 View v=getLayoutInflater().inflate(R.layout.row,null);
@@ -46,16 +46,16 @@ public class DatabaseActivity extends ActionBarActivity {
                 TextView nomeCanzone=(TextView)view.findViewById(R.id.textViewNomeCanzone);
                 nomeArtista.setText(cursor.getString(cursor.getColumnIndex(DatabaseStrings.NOME_ARTISTA)));
                 nomeCanzone.setText(cursor.getString(cursor.getColumnIndex(DatabaseStrings.NOME_CANZONE)));
+                notifyDataSetChanged();
                 deleteButton=(ImageButton)view.findViewById(R.id.imageButton);
-                deleteButton.setOnTouchListener(new View.OnTouchListener() {
+                deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public boolean onTouch(View view, MotionEvent event) {
+                    public void onClick(View view) {
                         int position=listView.getPositionForView(view);
                         long id=cursorAdapter.getItemId(position);
-                        dbManager.delete(id);
-                         //   cursorAdapter.changeCursor(dbManager.query());
+                        if(dbManager.delete(id))
+                        cursorAdapter.changeCursor(dbManager.query());
                         Toast.makeText(context, "La canzone è stata cancellata ", Toast.LENGTH_SHORT).show();
-                        return false;
                     }
                 });
             }
