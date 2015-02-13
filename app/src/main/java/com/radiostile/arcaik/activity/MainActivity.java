@@ -87,6 +87,10 @@ public class MainActivity extends ActionBarActivity {
         }else{
             statusBottone = false;
             metadata=false;
+            datiCanzone=null;
+            textViewSongTitle.setText(null);
+            timer.purge();
+            timer.cancel();
             stopService(intentStartMediaplayerService);
             buttonPlayPause.setImageResource(R.drawable.play);        }
     }
@@ -104,13 +108,12 @@ public class MainActivity extends ActionBarActivity {
                     runOnUiThread(new Runnable() {
                         public void run() {
 
-                            if (metadata) {
+
                                 textViewSongTitle.setText(datiCanzone);
                                 textViewSongTitle.refreshDrawableState();
-                            } else {
-                                textViewSongTitle.setText(null);
-                                datiCanzone=null;
-                            }
+
+
+
                         }
                     });
                 }
