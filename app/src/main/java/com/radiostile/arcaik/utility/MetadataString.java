@@ -5,21 +5,26 @@ package com.radiostile.arcaik.utility;
  */
 public class MetadataString {
     private String metadataString=null;
-    private String nomeArtista;
-    private String nomeCanzone;
+    private String nomeArtista=null;
+    private String nomeCanzone=null;
 
     public void setString(String metadataString){
         this.metadataString=metadataString;
     }
     public String getNomeArtista(){
-        int indice=metadataString.indexOf("-");
-        nomeArtista=metadataString.substring(0,indice);
-        return nomeArtista;
+        if(metadataString!=null) {
+            int indice = metadataString.indexOf("-");
+            nomeArtista = metadataString.substring(0, indice);
+            return nomeArtista;
+        }else return null;
     }
     public String getNomeCanzone(){
-        int indice=metadataString.indexOf("-");
-        nomeCanzone=metadataString.substring(indice+2,metadataString.length());
-        return nomeCanzone;
+        if(metadataString!=null) {
+            int indice = metadataString.indexOf("-");
+            nomeCanzone = metadataString.substring(indice + 2, metadataString.length());
+            return nomeCanzone;
+        }else
+            return null;
     }
 
 }

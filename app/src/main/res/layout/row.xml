@@ -5,7 +5,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
         android:id="@+id/textViewNomeArtista"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -17,7 +16,6 @@
     <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="New Text"
     android:id="@+id/textViewNomeCanzone"
     android:layout_below="@+id/textViewNomeArtista"
     android:layout_alignParentLeft="true"
@@ -33,7 +31,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton"
         android:layout_gravity="right"
-        android:src="@drawable/ic_action_delete"
+        android:src="@android:drawable/ic_menu_delete"
         android:background="@android:color/transparent"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"

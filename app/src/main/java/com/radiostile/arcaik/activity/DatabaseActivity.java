@@ -53,7 +53,7 @@ public class DatabaseActivity extends ActionBarActivity {
                         int position=listView.getPositionForView(view);
                         long id=cursorAdapter.getItemId(position);
                         dbManager.delete(id);
-                        cursorAdapter.notifyDataSetChanged();
+                         //   cursorAdapter.changeCursor(dbManager.query());
                         Toast.makeText(context, "La canzone è stata cancellata ", Toast.LENGTH_SHORT).show();
                         return false;
                     }

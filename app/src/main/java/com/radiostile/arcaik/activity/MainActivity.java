@@ -8,7 +8,6 @@ import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +31,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends ActionBarActivity {
     private ImageButton buttonPlayPause;
-    private TextView textViewSongTitle;
+    private TextView textViewSongTitle=null;
     private Button buttonTag;
     private boolean statusBottone = false;
     private boolean metadata=false;
@@ -105,11 +104,12 @@ public class MainActivity extends ActionBarActivity {
                     runOnUiThread(new Runnable() {
                         public void run() {
 
-                            if (metadata == true) {
+                            if (metadata) {
                                 textViewSongTitle.setText(datiCanzone);
                                 textViewSongTitle.refreshDrawableState();
                             } else {
                                 textViewSongTitle.setText(null);
+                                datiCanzone=null;
                             }
                         }
                     });
@@ -131,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
         public void onReceive(Context context, Intent intent) {
             Bundle bundle = intent.getExtras();
             serverOffline = bundle.getBoolean(MediaPlayerService.STATO_SERVER);
-            if (serverOffline == true) {
+            if (serverOffline) {
                 statusBottone = false;
                 buttonPlayPause.setImageResource(R.drawable.play);
                 Toast.makeText(getApplicationContext(), "SERVER OFFLINE", Toast.LENGTH_LONG).show();
@@ -157,8 +157,9 @@ public class MainActivity extends ActionBarActivity {
         }
     }
     public void salvaTag(View salva){
-        MetadataString metadatastring=new MetadataString();
-        if(datiCanzone.length()!=0){
+        MetadataString metadatastring;
+        if(datiCanzone!=null){
+            metadatastring=new MetadataString();
             metadatastring.setString(datiCanzone);
             String nomeArtista = metadatastring.getNomeArtista();
             String nomeCanzone = metadatastring.getNomeCanzone();
