@@ -9,12 +9,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButtonPlayPause"
-        android:layout_below="@+id/textViewSongTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="115dp"
         android:src="@drawable/play"
         android:background="#00000000"
-        android:onClick="startService"/>
+        android:onClick="startService"
+        android:layout_marginBottom="71dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,8 +31,8 @@
         android:textSize="@dimen/abc_text_size_medium_material"
         android:clickable="true"
         android:onClick="salvaTag"
-        android:layout_alignRight="@+id/imageButtonPlayPause"
-        android:layout_alignEnd="@+id/imageButtonPlayPause"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -41,9 +41,10 @@
         android:text="TAG3"
         android:id="@+id/buttonTag"
         android:onClick="salvaTag"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:layout_above="@+id/imageButtonPlayPause"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="47dp" />
 
 
 </RelativeLayout>

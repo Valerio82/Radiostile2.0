@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,7 +24,6 @@ import com.radiostile.arcaik.utility.IcyStreamMeta;
 import com.radiostile.arcaik.utility.MetadataString;
 import com.radiostile.arcaik.utility.Singleton;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -32,7 +32,7 @@ import java.util.TimerTask;
 public class MainActivity extends ActionBarActivity {
     private ImageButton buttonPlayPause;
     private TextView textViewSongTitle=null;
-    private Button buttonTag;
+    Button buttonTag;
     private boolean statusBottone = false;
     private boolean metadata=false;
     private Timer timer;
@@ -40,6 +40,8 @@ public class MainActivity extends ActionBarActivity {
     private static final String RADIOSTILE_URL="http://178.32.138.88:8046/stream";
     private Intent intentStartMediaplayerService;
     private DbManager dbManager;
+    private String confrontoDatiCanzone="prova";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +74,7 @@ public class MainActivity extends ActionBarActivity {
         super.onPause();
         unregisterReceiver(receiver);
         Singleton.getInstance().setBoolean(statusBottone);
-        if(metadata==true) {
+        if(metadata) {
             timer.cancel();
             timer.purge();
         }
@@ -107,21 +109,15 @@ public class MainActivity extends ActionBarActivity {
                     datiCanzone = icy.getStreamTitle();
                     runOnUiThread(new Runnable() {
                         public void run() {
+                                if(!datiCanzone.contentEquals(confrontoDatiCanzone)) {
+                                    textViewSongTitle.setText(datiCanzone);
+                                    textViewSongTitle.refreshDrawableState();
+                                    Log.i("TEXTVIEW", "TextView aggiornata");
 
-
-                                textViewSongTitle.setText(datiCanzone);
-                                textViewSongTitle.refreshDrawableState();
-
-
-
+                                }confrontoDatiCanzone=datiCanzone;
                         }
                     });
-                }
-                catch (MalformedURLException e)
-                {
-                    e.printStackTrace();
-                }
-                catch (IOException e)
+                } catch (IOException e)
                 {
                     e.printStackTrace();
                 }

@@ -4,9 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
@@ -33,11 +30,10 @@ public class DatabaseActivity extends ActionBarActivity {
         dbManager=new DbManager(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         Cursor cursor=dbManager.query();
-        cursorAdapter=new CursorAdapter(this,cursor,cursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER) {
+        cursorAdapter=new CursorAdapter(this,cursor,0) {
             @Override
             public View newView(Context context, Cursor cursor, ViewGroup parent) {
-                View v=getLayoutInflater().inflate(R.layout.row,null);
-                return v;
+                return getLayoutInflater().inflate(R.layout.row,null);
             }
 
             @Override
