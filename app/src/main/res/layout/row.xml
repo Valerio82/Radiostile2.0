@@ -11,7 +11,9 @@
         android:layout_alignParentStart="true"
         android:height="20dp"
         android:clickable="true"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toStartOf="@+id/imageButton" />
 
     <TextView
     android:layout_width="match_parent"
@@ -20,7 +22,7 @@
     android:layout_below="@+id/textViewNomeArtista"
     android:layout_alignParentLeft="true"
     android:layout_alignParentStart="true"
-    android:height="20dp"
+    android:height="35dp"
     android:clickable="true"
     android:textSize="15dp"
     android:layout_alignRight="@+id/textViewNomeArtista"
@@ -36,5 +38,5 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/textViewNomeCanzone" />
+        android:layout_alignBottom="@+id/textViewNomeCanzone"/>
 </RelativeLayout>

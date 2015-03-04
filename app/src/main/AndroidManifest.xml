@@ -28,7 +28,7 @@
 
         <activity
             android:name="com.radiostile.arcaik.activity.DatabaseActivity"
-            android:label="@string/title_activity_database"
+            android:label="@string/app_name"
             android:parentActivityName="com.radiostile.arcaik.activity.MainActivity">
         </activity>
     </application>

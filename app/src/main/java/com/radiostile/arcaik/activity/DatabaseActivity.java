@@ -2,6 +2,7 @@ package com.radiostile.arcaik.activity;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -38,8 +39,11 @@ public class DatabaseActivity extends ActionBarActivity {
 
             @Override
             public void bindView(View view, final Context context, Cursor cursor) {
+                Typeface font=Typeface.createFromAsset(getAssets(),"font/Lenka.ttf");
                 TextView nomeArtista=(TextView)view.findViewById(R.id.textViewNomeArtista);
+                nomeArtista.setTypeface(font);
                 TextView nomeCanzone=(TextView)view.findViewById(R.id.textViewNomeCanzone);
+                nomeCanzone.setTypeface(font);
                 nomeArtista.setText(cursor.getString(cursor.getColumnIndex(DatabaseStrings.NOME_ARTISTA)));
                 nomeCanzone.setText(cursor.getString(cursor.getColumnIndex(DatabaseStrings.NOME_CANZONE)));
                 notifyDataSetChanged();
