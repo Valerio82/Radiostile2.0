@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
     private static final String RADIOSTILE_URL="http://178.32.138.88:8046/stream";
     private Intent intentStartMediaplayerService;
     private DbManager dbManager;
-    private String confrontoDatiCanzone="prova";
+    private String confrontoDatiCanzone="";
 
 
     @Override
@@ -90,6 +90,7 @@ public class MainActivity extends ActionBarActivity {
             statusBottone = false;
             metadata=false;
             datiCanzone=null;
+            confrontoDatiCanzone="";
             textViewSongTitle.setText(null);
             timer.purge();
             timer.cancel();
