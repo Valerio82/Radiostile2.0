@@ -32,8 +32,7 @@
         android:clickable="true"
         android:onClick="salvaTag"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:text="Stringa di prova"/>
+        android:layout_alignParentEnd="true"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
