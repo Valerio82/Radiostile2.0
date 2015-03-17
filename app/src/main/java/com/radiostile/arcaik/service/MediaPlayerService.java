@@ -6,7 +6,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.IBinder;
-import android.util.Log;
 
 import java.io.IOException;
 
@@ -41,6 +40,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnPrepare
     public void onDestroy(){
         lettoreRadio.release();
         audioManager.abandonAudioFocus(this);
+
     }
     public void lettoreRadioStop(){
         lettoreRadio.stop();

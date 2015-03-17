@@ -1,12 +1,12 @@
 package com.radiostile.arcaik.activity;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Typeface;
 import android.media.AudioManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -29,7 +29,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
     private ImageButton buttonPlayPause;
     private TextView textViewSongTitle=null;
     Button buttonTag;
@@ -55,6 +55,7 @@ public class MainActivity extends ActionBarActivity {
         buttonTag=(Button)findViewById(R.id.buttonTag);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         dbManager=new DbManager(this);
+
 
     }
     public void onResume(){

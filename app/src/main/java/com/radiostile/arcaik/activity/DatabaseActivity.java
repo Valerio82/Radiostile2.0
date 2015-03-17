@@ -1,9 +1,9 @@
 package com.radiostile.arcaik.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Typeface;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,7 @@ import com.radiostile.arcaik.database.DatabaseStrings;
 import com.radiostile.arcaik.database.DbManager;
 import com.radiostile.arcaik.radiostile.R;
 
-public class DatabaseActivity extends ActionBarActivity {
+public class DatabaseActivity extends Activity {
     private DbManager dbManager;
     private ListView listView;
     private CursorAdapter cursorAdapter;
@@ -29,7 +29,7 @@ public class DatabaseActivity extends ActionBarActivity {
         setContentView(R.layout.activity_database);
         listView=(ListView)findViewById(R.id.listView);
         dbManager=new DbManager(this);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
         Cursor cursor=dbManager.query();
         cursorAdapter=new CursorAdapter(this,cursor,0) {
             @Override

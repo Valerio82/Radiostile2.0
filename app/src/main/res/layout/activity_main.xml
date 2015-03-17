@@ -28,7 +28,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:ellipsize="marquee"
         android:singleLine="true"
-        android:textSize="@dimen/abc_text_size_medium_material"
+        android:textSize="20dp"
         android:clickable="true"
         android:onClick="salvaTag"
         android:layout_alignParentRight="true"
